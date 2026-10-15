@@ -1,4 +1,6 @@
-# Kickoff plan: Front-Line Sales Candidate Assessment (selected 2026-10-15)
+# Kickoff plan: Front-Line Sales Candidate Assessment
+
+Status: shortlisted for interview on 2026-10-15, NOT awarded. Everything below applies only if the project is awarded. Issues in this repo are planned work, not committed work.
 
 Project: 10 weeks from Monday 2 Nov 2026. Week 10 ends Friday 8 Jan 2027.
 
