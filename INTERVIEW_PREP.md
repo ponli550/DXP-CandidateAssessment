@@ -19,6 +19,7 @@ A front-line sales hire goes through several interviews, each with a different f
 9. **What can you show today?** No code. Say it plainly. If there are three or more days before the interview, show a thin working slice, see below.
 10. **How much time can you give?** Answer with real numbers. Disclose other commitments, including the Codex hackathon on 5 Dec. Do not claim full-time if it is not true.
 11. **Why this stack?** React, Tailwind, Node.js, Express, MySQL: the backend lead already works in it, so nobody learns a new framework.
+12. **Why not buy an existing tool such as Mercer Mettl?** Fair question, and the category is not new. We found Mandarin support but no confirmed Bahasa Malaysia sales test. Our difference is the role profile the company agrees, flags that separate a trainable gap from a risk, a question bank the company owns, and validation limits stated honestly. We have not compared pricing, so we quote none. See MARKET_SCAN.md.
 
 ## Questions to ask them
 
