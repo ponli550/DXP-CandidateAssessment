@@ -9,7 +9,7 @@
 
 > 🎯 **Evidence, not a verdict.** A structured, three-language assessment that shows a hiring manager each candidate's strengths, development gaps and risks. The manager still decides.
 
-⚠️ **Status:** shortlisted for interview on 2026-10-15. **Not awarded.** Everything below is the plan if the project is awarded. Issues here are planned work, not committed work.
+
 
 ## 📚 What is in this repo
 
