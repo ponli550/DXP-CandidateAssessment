@@ -62,12 +62,12 @@ gantt
     section Build
     W3 Scoring engine                  :w3, 2026-11-16, 7d
     W4 Candidate flow three languages  :w4, 2026-11-23, 7d
-    W5 Profiling and flags (light)     :w5, 2026-11-30, 7d
+    W5 Profiling and flags light week     :w5, 2026-11-30, 7d
     W6 Hiring manager dashboard        :w6, 2026-12-07, 7d
     W7 Employee benchmark and access   :w7, 2026-12-14, 7d
     W8 Admin and export                :w8, 2026-12-21, 7d
     section Prove it
-    W9 Pilot over year-end (risk)      :crit, w9, 2026-12-28, 7d
+    W9 Pilot over year-end risk      :crit, w9, 2026-12-28, 7d
     W10 Validation report and handover :w10, 2027-01-04, 7d
     section Dates to watch
     Codex hackathon                    :milestone, 2026-12-05, 0d
@@ -91,7 +91,7 @@ gantt
 flowchart LR
     A[📝 Issue in a weekly milestone] --> B[🌿 Branch off main]
     B --> C[🔧 Commit]
-    C --> D[🔀 Pull request: Closes #n]
+    C --> D[🔀 Pull request that closes the issue]
     D --> E[✅ Tests pass]
     E --> F[🚀 Squash merge, delete branch]
 ```
