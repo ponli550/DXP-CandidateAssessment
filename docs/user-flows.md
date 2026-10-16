@@ -41,7 +41,7 @@ flowchart TD
     C --> D[View candidate list and assessment status]
     D --> E[Select a candidate]
     E --> F[Review capability profile]
-    F --> G[Inspect evidence, strengths, gaps, and limitations]
+    F --> G[Inspect evidence, strengths, development gaps, risk indicators, and limitations]
     G --> H[Review suggested interview probes]
     H --> I{Need comparison with other candidates?}
     I -- Yes --> J[Select comparable candidates]
@@ -86,34 +86,26 @@ flowchart TD
 - Changes to questions, translations, or scoring should create a new version.
 - The project owner must define who is authorised to approve and publish content.
 
-## 4. Assessment harness checks quality and proposes improvements
+## 4. Configuration checks
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Select draft or published assessment version]
+    A([Start]) --> B[Select draft assessment version]
     B --> C[Check capability mapping and question coverage]
     C --> D[Check translation completeness and review status]
-    D --> E[Check rubric/scoring consistency and version metadata]
-    E --> F[Review pilot observations when available]
-    F --> G[Generate traceable quality findings]
-    G --> H{Any issues or improvement opportunities?}
-    H -- No --> I[Record checks passed]
-    H -- Yes --> J[Draft suggested change or follow-up test]
-    J --> K[Human owner reviews evidence and impact]
-    K --> L{Approve change?}
-    L -- No --> M[Reject or defer with reason]
-    L -- Yes --> N[Create a new draft version]
-    N --> O[Run validation and regression checks]
-    O --> P[Approve and publish new version if checks pass]
-    I --> Q([End])
-    M --> Q
-    P --> Q
+    D --> E[Check scoring rules and version metadata]
+    E --> F[List findings with affected item, reason and priority]
+    F --> G{Any findings?}
+    G -- No --> H[Record checks passed]
+    G -- Yes --> I[Human fixes the draft]
+    I --> B
+    H --> J([End])
 ```
 
 **Notes**
-- “Self-improving” means the system helps identify and manage quality improvements; it does not rewrite or publish questions without human approval.
-- Every finding should identify the affected item, reason, severity or priority, and suggested next action.
-- A pilot pattern from a small sample should be labelled uncertain rather than treated as proof.
+- The checks never edit or publish content. A human fixes each finding and creates a new version.
+- Suggesting or drafting question edits is out of scope for the MVP.
+- Pilot item statistics are reviewed in the validation report, labelled provisional when the sample is small.
 
 ## 5. Employee benchmarking and pilot validation
 
@@ -148,7 +140,8 @@ flowchart TD
 | Candidate assessment | FR-01, FR-02, FR-03, FR-04, FR-10 |
 | Hiring manager review | FR-05, FR-06, FR-07 |
 | Content management | FR-03, FR-08, FR-09, FR-10 |
-| Assessment harness | FR-08, FR-09, FR-10, FR-13 |
+| Configuration checks | FR-09, FR-10, FR-13 |
+| Role profile and flags | FR-14, FR-15 |
 | Benchmarking and validation | FR-11, FR-13 and privacy/security requirements |
 
 ## Implementation boundary
