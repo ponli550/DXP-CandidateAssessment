@@ -2,6 +2,7 @@
 ## DXP Front-Line Sales Candidate Assessment MVP
 
 **Document status:** Draft for team review  
+**Alignment:** Brought into line with the submitted proposal (`PROPOSAL.pdf`) on 2026-10-16. Where this document and the proposal differ, the proposal wins.  
 **Version:** 1.0  
 **Project duration:** 10 weeks (planned)  
 **Planned start:** 2 November 2026  
@@ -31,8 +32,21 @@ Sales experience alone may not show whether a candidate can adapt to digital too
 5. Explore benchmarking against suitable existing sales employees without overstating conclusions.
 6. Establish a traceable basis for testing and improving assessment quality.
 
-### Proposed success measures
-The project team should agree numeric targets during discovery and pilot planning. Suggested measures:
+### Success targets (from the submitted proposal)
+
+Confirmed with the company in week 1 and reported in the validation report.
+
+| Measure | Target | How measured |
+|---|---|---|
+| Scoring accuracy | 100% | Automated tests against hand-scored answer sheets. Any miss is a defect. |
+| Assessment completion | 90% or above | Candidates who finish divided by candidates who start. |
+| Internal consistency per area | 0.70 or above, provisional | Pilot data of 20 to 30 candidates. |
+| Language equivalence | No item flagged as harder in one language after fixes | Cross-language item difficulty check. |
+| Usability | 4.0 out of 5 or above | Candidate and manager survey, with observed sessions. |
+| Hiring manager usefulness | 4.0 out of 5 or above | Post-pilot survey. |
+| Employee benchmark | Reported as a range only | About 10 employees. No prediction claim. |
+
+### Additional measures
 - Completion rate for pilot assessments.
 - Percentage of results with traceable evidence and scoring rationale.
 - Agreement between reviewers applying the same rubric to the same responses.
@@ -68,6 +82,17 @@ The assessment should cover the six capability areas identified in the project b
 
 Each capability should have a clear definition, observable indicators, an assessment method, and a scoring rubric. The team must validate the mapping between each question and the capability it is intended to measure.
 
+### Role profile, gaps and risks
+
+Before any question is written, HR and sales managers agree a **role profile**. For each of the six areas it sets the **required level** on a five-level scale and whether the area is **critical** (a shortfall affects performance) or **trainable** (a shortfall can be developed on the job). The profile is versioned, and every result records which profile version it was scored against.
+
+Flags for each area:
+- **Strength:** at or above the required level.
+- **Development gap:** below the level in a trainable area, by no more than one level.
+- **Risk indicator:** below the level in a critical area, or more than one level below in any area.
+
+These rules are held as data, shown to the user, and changeable by HR. A risk indicator is a prompt to look closer, never a rejection.
+
 ## 6. Language support
 
 Candidate-facing assessment content should support:
@@ -86,19 +111,20 @@ Language versions should be reviewed for meaning equivalence, not only literal t
 - Response capture and submission confirmation.
 - Deterministic, versioned scoring rules for supported question types.
 - Capability-level results with supporting evidence and clear explanations.
-- Hiring-manager view of candidate results, strengths, gaps, and follow-up prompts.
+- Role profile with required levels, versioned.
+- Hiring-manager view of candidate results: strengths, development gaps, risk indicators, evidence, and follow-up prompts.
 - Side-by-side candidate comparison using the same assessment version where possible.
 - Question and scoring configuration for authorised users.
 - Version tracking for questions, translations, rubrics, and scoring rules.
 - Basic pilot analytics and validation reporting.
-- Employee benchmarking only when approved, consented, sufficiently comparable data is available.
-- Export of agreed results to CSV or Excel if required for the pilot.
+- Employee benchmark of about 10 employees, shown as a range with group size, only where approved and consented.
+- Export of results to CSV and Excel.
 - Basic access control and protection of candidate data.
 - Documentation and handover.
 
 ### Out of scope for the MVP unless explicitly approved
 - Autonomous accept/reject or ranking decisions.
-- Fully automated question rewriting or automatic publication of changed assessments.
+- Automated or AI-drafted question edits, and automatic publication of changed assessments. Configuration checks (FR-09) are in scope. Improvement suggestions are not.
 - Claims of validated prediction of future sales performance without appropriate evidence.
 - Advanced proctoring or guaranteed prevention of cheating.
 - Full HRIS, applicant-tracking, payroll, or onboarding integrations.
@@ -111,7 +137,7 @@ See `user-flows.md` for Mermaid diagrams. The primary journeys are:
 1. Candidate completes an assessment.
 2. Hiring manager reviews and compares candidate evidence.
 3. Authorised administrator maintains and publishes assessment content.
-4. Assessment harness checks consistency and proposes controlled improvements.
+4. Configuration checks flag missing mappings, missing translations and invalid scoring rules.
 5. Project team evaluates suitable employee benchmarking data.
 
 ## 9. Functional requirements
@@ -122,31 +148,32 @@ See `user-flows.md` for Mermaid diagrams. The primary journeys are:
 | FR-02 | Deliver assessment | Must | Candidate can read instructions, answer the configured questions, and submit responses |
 | FR-03 | Map questions to capabilities | Must | Each active question is linked to at least one approved capability and has a recorded version |
 | FR-04 | Score consistently | Must | The same response set and scoring version always produce the same computed score |
-| FR-05 | Explain results | Must | Results show capability-level findings and the evidence or rubric basis used |
-| FR-06 | Review candidate profile | Must | Hiring manager can inspect strengths, gaps, limitations, and suggested follow-up questions |
+| FR-05 | Explain results | Must | Results show capability-level findings, flags, and the questions and rubric behind each |
+| FR-06 | Review candidate profile | Must | Hiring manager can inspect strengths, development gaps, risk indicators, limitations, and suggested follow-up questions |
 | FR-07 | Compare candidates | Should | Hiring manager can compare candidates using compatible assessment versions and see when comparisons are not directly comparable |
 | FR-08 | Manage questions and rubrics | Must | Authorised administrator can draft, review, version, and publish assessment content |
 | FR-09 | Validate assessment configuration | Should | System flags missing capability mappings, missing translations, invalid scoring rules, and unapproved content |
 | FR-10 | Record audit information | Must | Results retain the assessment, question, language, and scoring versions used |
-| FR-11 | Benchmark employees | Could / gated | Only approved, consented, appropriately protected data is used; sample limitations are shown |
-| FR-12 | Export pilot data | Should | Authorised user can export agreed fields in CSV/Excel format without exposing unnecessary personal data |
+| FR-11 | Benchmark employees | Should / gated | Only approved, consented, appropriately protected data is used; shown as a range with group size; no correlation reported from a sample too small to support it |
+| FR-12 | Export results | Must | Authorised user can export agreed fields in CSV/Excel format without exposing unnecessary personal data |
 | FR-13 | Report pilot quality | Should | Project team can review completion, missing data, scoring consistency, and item-level validation observations |
+| FR-14 | Role profile | Must | HR can create and version a role profile with a required level and critical or trainable mark for each area; every result records the profile version |
+| FR-15 | Gap and risk flags | Must | Strength, development gap and risk indicator are generated from the role profile by visible rules, each listing the questions that drove it |
 
-Priority meanings: **Must** = essential for a credible MVP; **Should** = important if time permits; **Could / gated** = only after governance and data readiness checks.
+Priority meanings: **Must** = essential for a credible MVP; **Should** = important if time permits; **Should / gated** = committed in the proposal, but only after governance, consent and data readiness checks.
 
-## 10. Assessment harness and controlled improvement
+## 10. Configuration checks
 
-The assessment harness is a quality-control workflow, not an autonomous hiring judge.
-
-It should check for issues such as:
+Configuration checks are quality control, not an autonomous judge and not an editor. The system flags:
 - Questions with no capability mapping.
 - Missing or unreviewed language variants.
-- Ambiguous or duplicated questions.
+- Duplicated questions.
 - Scoring rules that are missing, inconsistent, or not versioned.
-- Changes that would make comparisons with previous results unreliable.
-- Items that show concerning patterns during pilot review, where enough data exists.
+- Changes that would make comparisons with earlier results unreliable.
 
-The harness may suggest edits or tests, but an authorised human must review and approve changes. Published assessments must remain immutable versions. A change to a question, translation, rubric, or scoring rule should create a new version and be tested before publication. Keep a record of what changed, why, who approved it, and when it became active.
+An authorised human fixes each finding. Published assessments remain immutable versions. A change to a question, translation, rubric, or scoring rule creates a new version and is tested before publication, with a record of what changed, why, who approved it, and when it became active.
+
+Suggesting or drafting edits to questions is out of scope for the MVP.
 
 ## 11. Hiring manager analysis
 
@@ -217,17 +244,24 @@ Use pseudonymous identifiers where feasible. Define retention, deletion, access,
 | Scope exceeds the 10-week project | Prioritise candidate assessment, transparent scoring, manager review, and basic validation before optional analytics |
 | Personal data is exposed or retained unnecessarily | Minimise data, restrict access, and agree retention and deletion rules |
 
-## 16. Proposed delivery sequence
+## 16. Delivery sequence
 
-The project team should confirm this plan against actual staffing and dependencies.
+From the submitted proposal. Ten weeks from 2 November 2026 if awarded. Each week has an acceptance test.
 
-- **Weeks 1–2:** Confirm requirements, capability definitions, question blueprint, data/privacy decisions, and language-review process.
-- **Weeks 3–4:** Design candidate journey, data model, scoring rubric, manager-result format, and initial content.
-- **Weeks 5–6:** Implement core assessment, response capture, deterministic scoring, and version tracking.
-- **Weeks 7–8:** Implement hiring-manager analysis, candidate comparison where feasible, and assessment configuration checks.
-- **Weeks 9–10:** Test end-to-end flows, review translations, run a limited pilot/validation, fix defects, and prepare handover.
+| Week | Work | Accepted when |
+|---|---|---|
+| 1 | Job analysis, role profile, pilot gates, privacy review. | Role profile signed off by HR. |
+| 2 | Question bank draft, translation starts, data model. | Draft items for all six areas. Schema reviewed. |
+| 3 | Backend foundation, scoring engine. | Scoring passes all hand-scored test sheets. |
+| 4 | Candidate flow. | A candidate completes the assessment end to end in each language, on phone and laptop. |
+| 5 | Profiling and flag rules. | Strengths, gaps and risks generated from the role profile with evidence. |
+| 6 | Hiring manager dashboard. | Profile, comparison of 2 to 5 candidates, decision and reason logged. |
+| 7 | Employee benchmark and access control. | Range shown with group size. Each role sees only what it is allowed to. |
+| 8 | Admin, export, analytics, pilot readiness. | Item management, export and item statistics work. |
+| 9 | Candidate pilot and usability sessions. | Pilot completed, findings logged. |
+| 10 | Validation report, fixes, handover. | Report states what is proven and what is not. |
 
-This is a proposed sequence, not a commitment that all features will be completed regardless of resourcing.
+Known calendar risk: week 9 is 28 December to 1 January. Plan to move employee sessions to week 7 and start the candidate pilot in week 8. Week 5 holds the 5 December hackathon, so keep it light. See `KICKOFF.md`.
 
 ## 17. Open questions
 
@@ -243,6 +277,8 @@ The project owner and team should resolve:
 9. Which languages and devices will be included in usability testing?
 10. What measurable acceptance targets will the sponsor approve?
 
+Already answered by the submitted proposal: question formats and scoring (section 4), scale and weights (five levels per area, no composite score), approval roles (HR admin and assessment admin), user roles and access (section 10), export (required, Excel and CSV), languages (English, Bahasa Malaysia, Mandarin), and numeric targets (section 3 above). Still open: who approves published versions at the company, data retention and consent wording, benchmark sample access, and device coverage for usability testing.
+
 ## 18. Definition of done
 
 The documentation and MVP are ready for review when:
@@ -250,6 +286,7 @@ The documentation and MVP are ready for review when:
 - Each active question is mapped to an approved capability and scoring rule.
 - Repeated scoring of the same versioned responses produces the same result.
 - The candidate can complete and submit an assessment in each supported language included in the pilot.
+- A signed role profile exists, and results show strengths, development gaps and risk indicators against it.
 - Hiring managers can review capability evidence and limitations.
 - Changes to assessment content are versioned and require approval.
 - Privacy, access, retention, and benchmarking decisions are documented.

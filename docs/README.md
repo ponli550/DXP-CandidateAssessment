@@ -7,6 +7,8 @@ This folder contains the proposed product requirements and core user flows for t
 - `user-flows.md` — Mermaid flow diagrams for the candidate, hiring manager, assessment administrator, assessment harness, and benchmarking journeys.
 
 ## Review notes
+Aligned with the submitted proposal on 2026-10-16. Where these documents and `PROPOSAL.pdf` differ, the proposal wins.
+
 These documents are a proposal for team review. Confirm open questions and assumptions with the project owner before treating them as final requirements. The diagrams describe intended journeys, not implemented functionality.
 
 ## Viewing diagrams
